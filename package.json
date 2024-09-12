@@ -9,14 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "@ignite-ui/react": "^2.2.4",
     "@types/node": "22.5.4",
     "@types/react": "18.3.5",
     "@types/react-dom": "18.3.0",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.9",
     "next": "14.2.9",
+    "phosphor-react": "^1.4.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "typescript": "5.6.2"
+    "react-hook-form": "^7.53.0",
+    "typescript": "5.6.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2"
   }
 }
