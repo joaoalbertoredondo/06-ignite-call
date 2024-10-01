@@ -1,7 +1,7 @@
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Container, Header } from "../styles"
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { Container, Header } from '../styles'
 import {
   Avatar,
   Button,
@@ -9,16 +9,16 @@ import {
   MultiStep,
   Text,
   TextArea,
-} from "@ignite-ui/react"
-import { FormAnnotation, ProfileBox } from "./styles"
-import { ArrowRight } from "phosphor-react"
-import { useSession } from "next-auth/react"
-import { GetServerSideProps } from "next"
-import { getServerSession } from "next-auth"
-import { buildNextAuthOptions } from "../../api/auth/[...nextauth].api"
-import { api } from "../../../lib/axios"
-import { useRouter } from "next/router"
-import { NextSeo } from "next-seo"
+} from '@ignite-ui/react'
+import { FormAnnotation, ProfileBox } from './styles'
+import { ArrowRight } from 'phosphor-react'
+import { useSession } from 'next-auth/react'
+import { GetServerSideProps } from 'next'
+import { getServerSession } from 'next-auth'
+import { buildNextAuthOptions } from '../../api/auth/[...nextauth].api'
+import { api } from '../../../lib/axios'
+import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 
 const updateProfileSchema = z.object({
   bio: z.string(),
@@ -39,7 +39,7 @@ export default function UpdateProfile() {
   const router = useRouter()
 
   async function handleUpdateProfile(data: UpdateProfileData) {
-    await api.put("/users/profile", {
+    await api.put('/users/profile', {
       bio: data.bio,
     })
 
@@ -58,9 +58,9 @@ export default function UpdateProfile() {
           <MultiStep size={4} currentStep={4} />
         </Header>
 
-        <ProfileBox as={"form"} onSubmit={handleSubmit(handleUpdateProfile)}>
+        <ProfileBox as={'form'} onSubmit={handleSubmit(handleUpdateProfile)}>
           <label>
-            <Text size={"sm"}>Foto de perfil</Text>
+            <Text size={'sm'}>Foto de perfil</Text>
             <Avatar
               src={session.data?.user.avatar_url}
               alt={session.data?.user.name}
@@ -69,8 +69,8 @@ export default function UpdateProfile() {
 
           <label>
             <Text>Sobre você</Text>
-            <TextArea {...register("bio")} />
-            <FormAnnotation size={"sm"}>
+            <TextArea {...register('bio')} />
+            <FormAnnotation size={'sm'}>
               Fale um pouco sobre você. Isto será exibido em sua página pessoal.
             </FormAnnotation>
           </label>

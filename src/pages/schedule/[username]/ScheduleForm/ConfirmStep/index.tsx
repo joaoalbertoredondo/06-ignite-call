@@ -1,18 +1,18 @@
-import { Button, Text, TextArea, TextInput } from "@ignite-ui/react"
-import { ConfirmForm, FormActions, FormError, FormHeader } from "./styles"
-import { CalendarBlank, Clock } from "phosphor-react"
-import { z } from "zod"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import dayjs from "dayjs"
-import { useRouter } from "next/router"
-import { api } from "../../../../../lib/axios"
+import { Button, Text, TextArea, TextInput } from '@ignite-ui/react'
+import { ConfirmForm, FormActions, FormError, FormHeader } from './styles'
+import { CalendarBlank, Clock } from 'phosphor-react'
+import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
+import { api } from '../../../../../lib/axios'
 
 const confirmFormSchema = z.object({
   name: z
     .string()
-    .min(3, { message: "O nome precisa no mínimo 3 caracteres." }),
-  email: z.string().email({ message: "Digite um e-mail válido." }),
+    .min(3, { message: 'O nome precisa no mínimo 3 caracteres.' }),
+  email: z.string().email({ message: 'Digite um e-mail válido.' }),
   observations: z.string().nullable(),
 })
 
@@ -51,8 +51,8 @@ export function ConfirmStep({
     onCancelConfirmation()
   }
 
-  const describedDate = dayjs(schedulingDate).format("DD[ de ]MMMM[ de ]YYYY")
-  const describedTime = dayjs(schedulingDate).format("HH:mm[h]")
+  const describedDate = dayjs(schedulingDate).format('DD[ de ]MMMM[ de ]YYYY')
+  const describedTime = dayjs(schedulingDate).format('HH:mm[h]')
 
   return (
     <ConfirmForm as="form" onSubmit={handleSubmit(handleConfirmScheduling)}>
@@ -69,42 +69,42 @@ export function ConfirmStep({
       </FormHeader>
 
       <label>
-        <Text size={"sm"}>Nome completo</Text>
+        <Text size={'sm'}>Nome completo</Text>
         <TextInput
           placeholder="Seu nome"
           crossOrigin={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
-          {...register("name")}
+          {...register('name')}
         />
         {errors.name && (
-          <FormError size={"sm"}>{errors.name.message}</FormError>
+          <FormError size={'sm'}>{errors.name.message}</FormError>
         )}
       </label>
 
       <label>
-        <Text size={"sm"}>Endereço de e-mail</Text>
+        <Text size={'sm'}>Endereço de e-mail</Text>
         <TextInput
           placeholder="johndoe@example.com"
           crossOrigin={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
-          {...register("email")}
+          {...register('email')}
         />
         {errors.email && (
-          <FormError size={"sm"}>{errors.email.message}</FormError>
+          <FormError size={'sm'}>{errors.email.message}</FormError>
         )}
       </label>
 
       <label>
-        <Text size={"sm"}>Observações</Text>
-        <TextArea {...register("observations")} />
+        <Text size={'sm'}>Observações</Text>
+        <TextArea {...register('observations')} />
       </label>
 
       <FormActions>
         <Button
           type="button"
-          variant={"tertiary"}
+          variant={'tertiary'}
           onClick={onCancelConfirmation}
         >
           Cancelar
