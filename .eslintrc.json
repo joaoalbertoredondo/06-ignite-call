@@ -1,6 +1,14 @@
 {
-  "extends": [
-    "@rocketseat/eslint-config/react",
-    "next/core-web-vitals"
-  ]
+  "extends": ["@rocketseat/eslint-config/react", "next/core-web-vitals"],
+  "rules": {
+    "camelcase": "off",
+    // "@typescript-eslint/camelcase": ["off"]
+    "@typescript-eslint/naming-convention": [
+      "off",
+      {
+        "selector": "default",
+        "format": null
+      }
+    ]
+  }
 }
